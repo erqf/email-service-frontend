@@ -1,0 +1,507 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #f5f5f5;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* ==================== AUTH ====================*/
+
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-box h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #333;
+}
+
+.auth-box > p {
+  text-align: center;
+  color: #999;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.error-box {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.auth-box button {
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.auth-box button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.auth-box button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.auth-link span {
+  color: #667eea;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.auth-link span:hover {
+  text-decoration: underline;
+}
+
+/* ==================== DASHBOARD ====================*/
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.sidebar {
+  width: 320px;
+  background: white;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sidebar-header h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.logout-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: #ff5252;
+}
+
+.user-info {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.create-inbox-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.create-inbox-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.create-inbox-form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.create-inbox-form button {
+  padding: 10px 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.create-inbox-form button:hover {
+  background: #5568d3;
+}
+
+.inboxes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.no-inboxes {
+  color: #999;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.inbox-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.inbox-item:hover {
+  background: #f0f0f0;
+}
+
+.inbox-item.active {
+  background: #667eea;
+  color: white;
+  border-left-color: #667eea;
+}
+
+.inbox-info {
+  flex: 1;
+}
+
+.inbox-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.inbox-email {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.inbox-item.active .delete-btn {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.delete-btn:hover {
+  color: #ff6b6b;
+}
+
+/* ==================== MAIN CONTENT ====================*/
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.inbox-view {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.inbox-header h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.inbox-header p {
+  color: #999;
+  font-size: 14px;
+}
+
+.refresh-btn {
+  padding: 10px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.refresh-btn:hover {
+  background: #5568d3;
+}
+
+/* ==================== EMAILS LIST ====================*/
+
+.emails-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.email-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid #667eea;
+}
+
+.email-item:hover {
+  background: #f0f0f0;
+  transform: translateX(4px);
+}
+
+.email-content {
+  flex: 1;
+}
+
+.email-item .from {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.email-item .subject {
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.email-item .preview {
+  color: #999;
+  font-size: 13px;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timestamp {
+  color: #999;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+/* ==================== EMAIL DETAIL ====================*/
+
+.email-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 8px;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.email-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.email-header p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.email-header h4 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 12px;
+}
+
+.email-body {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  overflow-y: auto;
+  flex: 1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+}
+
+/* ==================== EMPTY STATE ====================*/
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p:first-child {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state p:last-child {
+  color: #999;
+  font-size: 16px;
+}
+
+/* ==================== SCROLLBAR ====================*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ==================== RESPONSIVE ====================*/
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    max-height: 40vh;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
+  .inbox-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .refresh-btn {
+    width: 100%;
+  }
+}
