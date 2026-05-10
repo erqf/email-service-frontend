@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'https://email-service-backend-rp0g.onrender.com/'; // ZAMIJENI OVO!
+const API_URL = 'https://email-service-backend-rp0g.onrender.com/api';
 
 export default function App() {
   const [page, setPage] = useState('login'); // login, register, dashboard
