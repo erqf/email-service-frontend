@@ -137,10 +137,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (token && page === 'dashboard') {
-      loadInboxes(token);
-    }
-  }, [token, page]);
+  if (token && page === 'dashboard') {
+    loadInboxes(token);
+  }
+}, [token, page, loadInboxes]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
