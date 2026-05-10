@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -74,16 +74,16 @@ export default function App() {
 
   // ==================== INBOX ====================
 
-  const loadInboxes = async (authToken) => {
-    try {
-      const { data } = await axios.get(`${API_URL}/inbox/list`, {
-        headers: { Authorization: `Bearer ${authToken || token}` }
-      });
-      setInboxes(data);
-    } catch (err) {
-      console.error('Greška pri učitavanju inboxa:', err);
-    }
-  };
+  const loadInboxes = useCallback(async (authToken) => {
+  try {
+    const { data } = await axios.get(`${API_URL}/inbox/list`, {
+      headers: { Authorization: `Bearer ${authToken || token}` }
+    });
+    setInboxes(data);
+  } catch (err) {
+    console.error('Greška pri učitavanju inboxa:', err);
+  }
+}, [token]);
 
   const createInbox = async (e) => {
     e.preventDefault();
